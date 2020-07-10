@@ -1,11 +1,11 @@
 @font-face {
     font-family: Oxygen;
-    src: url(Style/Font/Oxygen-Regular.ttf);
+    src: url(Font/Oxygen-Regular.ttf);
 }
 
 @font-face {
     font-family: Oxygen;
-    src: url(Style/Font/Oxygen-Bold.ttf);
+    src: url(Font/Oxygen-Bold.ttf);
     font-weight: bold;
 }
 
