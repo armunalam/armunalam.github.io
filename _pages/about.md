@@ -28,6 +28,6 @@ I am broadly interested in **multimodal learning** and **AI in healthcare**. My 
 
 Before McGill, I was a Research Assistant at the Center for Computational & Data Sciences (CCDS), Independent University, Bangladesh, where I worked with Dr. AKM Mahbubur Rahman and Dr. Amin Ahsan Ali, in collaboration with Dr. Md Mofijul Islam and Aman Chadha. My projects there spanned multimodal document understanding for low-resource languages, and vision-and-text land use and land cover segmentation (remote sensing).
 
-I received my B.Sc. in Computer Science and Engineering from [Independent University, Bangladesh](https://iub.edu.bd/), graduating _Summa Cum Laude_ with a CGPA of 3.99/4.00, the highest in the department. I have also worked as an AI Engineer at I-Venture Limited and as a Software Engineer at Cloud Creative Limited.
+I received my B.Sc. in Computer Science and Engineering from [Independent University, Bangladesh](https://iub.ac.bd/), graduating _Summa Cum Laude_ with a CGPA of 3.99/4.00, the highest in the department. I have also worked as an AI Engineer at I-Venture Limited and as a Software Engineer at Cloud Creative Limited.
 
 Outside research, I enjoy programming, playing the piano, and music.
