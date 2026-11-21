@@ -1,0 +1,139 @@
+# Data for the CV page (_pages/cv.md, rendered by _includes/cv_page.liquid).
+# Dates are free text, so write them exactly as they should appear.
+
+name: Armun Alam
+headline: M.Sc. Student, McGill University & Mila
+location: Montreal, Quebec, Canada
+email: armunalam@gmail.com
+links:
+  - icon: fa-brands fa-github
+    label: armunalam
+    url: https://github.com/armunalam
+  - icon: fa-brands fa-linkedin
+    label: armunalam
+    url: https://www.linkedin.com/in/armunalam
+  - icon: fa-brands fa-x-twitter
+    label: armunalam
+    url: https://x.com/armunalam
+
+summary: >-
+  Broadly interested in multimodal learning and world models; my current work mostly aligns with integrating vision-language models and world models in healthcare.
+
+education:
+  - title: M.Sc. (AI in Healthcare)
+    org: McGill University / Mila – Quebec Artificial Intelligence Institute
+    url: https://www.mcgill.ca/
+    date: Aug 2026 – Present
+    location: Montreal, Canada
+    highlights:
+      - "Supervisor: Dr. Samira Abbasgholizadeh-Rahimi"
+
+  - title: B.Sc. in Computer Science and Engineering
+    org: Independent University, Bangladesh
+    url: https://iub.edu.bd/
+    date: Sep 2018 – Aug 2022
+    location: Dhaka, Bangladesh
+    highlights:
+      - "CGPA: **3.99/4.00** (Summa Cum Laude, highest in the department)"
+
+  # - title: Cambridge International A Level
+  #   org: Ingenious International School
+  #   date: Jul 2018
+  #   location: Dhaka, Bangladesh
+  #   highlights:
+  #     - "Grades: 2 A, 1 B"
+
+  # - title: Cambridge O Level
+  #   org: Ingenious International School
+  #   date: Jul 2016
+  #   location: Dhaka, Bangladesh
+  #   highlights:
+  #     - "Grades: 2 A*, 4 A, 2 B"
+
+experience:
+  - title: Research Assistant
+    org: Center for Computational & Data Sciences (CCDS), IUB
+    date: Oct 2024 – Jul 2026
+    location: Dhaka, Bangladesh
+    highlights:
+      - Research projects on multimodal learning, remote sensing, and ML security.
+      - "Primary advisors: Dr. AKM Mahbubur Rahman, Dr. Amin Ahsan Ali, and Dr. Ashraful Islam."
+      - "Collaborators: Dr. Md Mofijul Islam and Aman Chadha."
+
+  - title: AI Engineer (part-time)
+    org: I-Venture Limited (IVL)
+    date: Jul 2025 – Aug 2026
+    location: Remote
+    highlights:
+      - Built AI agents.
+      - Research on the frontiers of AI applications.
+
+  - title: Tutor
+    org: Independent University, Bangladesh (IUB)
+    date: Jun 2025 – Jul 2026
+    location: Dhaka, Bangladesh
+    highlights:
+      - Lectured undergraduate students in programming and data structures under the Coding for All Initiative.
+
+  - title: Software Engineer
+    org: Cloud Creative Limited (CCL)
+    date: Jul 2021 – Dec 2023
+    location: Dhaka, Bangladesh
+    highlights:
+      - Built software for industry clients.
+
+projects:
+  - title: Multimodal Document Understanding for Low-Resource Languages
+    org: CCDS
+    advisors: Dr. Md Mofijul Islam, Dr. AKM Mahbubur Rahman, Aman Chadha
+    summary: >-
+      Curating a benchmark for Bangla, Sinhala, Tamil, and Malayalam documents covering layout grounding, visual question answering, and key
+      information retrieval in a multimodal setting, and proposing a model architecture.
+
+  - title: Vision-Language Land Use and Land Cover Segmentation for Developing Countries
+    org: CCDS
+    advisors: Dr. AKM Mahbubur Rahman, Dr. Amin Ahsan Ali
+    summary: >-
+      Combining satellite imagery with a dataset of administrative information and spatial features to improve LULC segmentation for structurally
+      complex cities such as Dhaka.
+
+  - title: Automatic Exam Script Checking
+    org: CCDS
+    advisors: Dr. Md Mofijul Islam, Dr. AKM Mahbubur Rahman, Aman Chadha
+    summary: >-
+      Building a benchmark and a language-model approach that predicts marks for computer science exam scripts and explains the reasoning behind
+      the marking.
+
+  - title: MLLM Jailbreaking
+    org: CCDS
+    advisors: Dr. AKM Mahbubur Rahman
+    summary: Finding loopholes in closed-source multimodal LLMs that lead them to produce misaligned and harmful responses.
+
+awards:
+  - title: Summa Cum Laude
+    org: Independent University, Bangladesh
+    summary: For a CGPA of 3.99/4.00 in my undergraduate degree, the highest in the department.
+
+  - title: Vice Chancellor's Honor List
+    org: Independent University, Bangladesh
+    summary: A monetary award received every year of my undergraduate degree for academic performance.
+
+  - title: The Daily Star Award
+    org: The Daily Star
+    summary: For an outstanding O Level result.
+
+skills:
+  - name: Programming
+    items: [Python, JavaScript, TypeScript, C/C++, SQL, Rust, Java, Dart, MATLAB, C#]
+  - name: ML & Data
+    items: [PyTorch, NumPy, Scikit-Learn, Pandas, TensorFlow, SciPy, SymPy]
+  - name: Web
+    items: [FastAPI, Django, Django REST Framework, Flask, React, Next.js, HTML, CSS, Prisma ORM, Bootstrap]
+  - name: Tools
+    items: [Unix/Linux Shell, Git, Docker, LaTeX, PostgreSQL, Flutter, wxWidgets, Odoo, Excel]
+
+additional:
+  - name: Languages
+    value: English, Bangla
+  - name: Interests
+    value: Programming, Piano, Music

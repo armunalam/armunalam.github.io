@@ -1,0 +1,363 @@
+{% comment %}
+  Custom CV page. Content comes from _data/cv.yml; publications come from _bibliography/papers.bib.
+{% endcomment %}
+{% assign cv = site.data.cv %}
+
+<style>
+  .cvx {
+    --cvx-muted: var(--global-text-color-light);
+    --cvx-line: var(--global-divider-color);
+    --cvx-accent: var(--global-theme-color);
+    font-size: 0.97rem;
+    line-height: 1.55;
+  }
+  .cvx a {
+    color: var(--cvx-accent);
+  }
+
+  /* Header */
+  .cvx-head {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--cvx-line);
+  }
+  .cvx-headline {
+    font-size: 1.15rem;
+    font-weight: 500;
+    margin: 0 0 0.6rem;
+  }
+  .cvx-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: var(--cvx-muted);
+    font-size: 0.9rem;
+  }
+  .cvx-contact i {
+    width: 1.1em;
+    margin-right: 0.3rem;
+    text-align: center;
+  }
+  .cvx-contact a {
+    color: inherit;
+  }
+  .cvx-contact a:hover {
+    color: var(--cvx-accent);
+  }
+  .cvx-summary {
+    margin: 1rem 0 0;
+  }
+
+  /* Sections */
+  .cvx-section {
+    display: grid;
+    grid-template-columns: 9.5rem minmax(0, 1fr);
+    gap: 0 2rem;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--cvx-line);
+  }
+  .cvx-section:last-child {
+    border-bottom: 0;
+  }
+  .cvx-section > h2 {
+    margin: 0.15rem 0 0;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cvx-accent);
+  }
+
+  /* Entries */
+  .cvx-entry + .cvx-entry {
+    margin-top: 1.35rem;
+  }
+  .cvx-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.25rem 1.5rem;
+  }
+  .cvx-row > :first-child {
+    min-width: 0;
+  }
+  .cvx-row > :last-child {
+    flex: none;
+    text-align: right;
+    white-space: nowrap;
+  }
+  .cvx-title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  .cvx-date {
+    font-size: 0.85rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--cvx-muted);
+  }
+  .cvx-org {
+    font-style: italic;
+  }
+  .cvx-org a {
+    color: inherit;
+  }
+  .cvx-org a:hover {
+    color: var(--cvx-accent);
+  }
+  .cvx-loc {
+    font-size: 0.85rem;
+    color: var(--cvx-muted);
+  }
+  .cvx-list {
+    margin: 0.4rem 0 0;
+    padding-left: 1.1rem;
+  }
+  .cvx-list li {
+    margin: 0.15rem 0;
+  }
+  .cvx-list li::marker {
+    color: var(--cvx-muted);
+  }
+  .cvx-text {
+    margin: 0.3rem 0 0;
+  }
+  .cvx-meta {
+    margin: 0.1rem 0 0;
+    font-size: 0.88rem;
+    color: var(--cvx-muted);
+  }
+
+  /* Skills & key/value rows */
+  .cvx-kv {
+    display: grid;
+    grid-template-columns: 8rem minmax(0, 1fr);
+    gap: 0.6rem 1rem;
+    margin: 0;
+  }
+  .cvx-kv dt {
+    font-weight: 600;
+  }
+  .cvx-kv dd {
+    margin: 0;
+  }
+  .cvx-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .cvx-chips li {
+    padding: 0.05rem 0.55rem;
+    border: 1px solid var(--cvx-line);
+    border-radius: 999px;
+    font-size: 0.83rem;
+  }
+
+  /* Publications (rendered by jekyll-scholar) */
+  .cvx-pubs .publications ol.bibliography {
+    margin: 0;
+    padding: 0;
+  }
+  .cvx-pubs .publications ol.bibliography li {
+    margin-bottom: 1.1rem;
+  }
+  .cvx-pubs .publications ol.bibliography li:last-child {
+    margin-bottom: 0;
+  }
+  .cvx-pubs .publications ol.bibliography .row {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    margin: 0;
+  }
+  .cvx-pubs .publications ol.bibliography .row > .abbr {
+    flex: 0 0 5.5rem;
+    max-width: 5.5rem;
+    padding: 0;
+  }
+  .cvx-pubs .publications ol.bibliography .row > [id] {
+    flex: 1 1 auto;
+    max-width: none;
+    min-width: 0;
+    padding: 0;
+  }
+
+  @media (max-width: 640px) {
+    .cvx-section {
+      grid-template-columns: minmax(0, 1fr);
+      padding: 1.4rem 0;
+    }
+    .cvx-section > h2 {
+      margin-bottom: 0.9rem;
+    }
+    .cvx-row {
+      flex-direction: column;
+    }
+    .cvx-row > :last-child {
+      text-align: left;
+      white-space: normal;
+    }
+    .cvx-kv {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.2rem;
+    }
+    .cvx-kv dd {
+      margin-bottom: 0.6rem;
+    }
+    .cvx-pubs .publications ol.bibliography .row {
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .cvx-pubs .publications ol.bibliography .row > .abbr {
+      flex: none;
+    }
+  }
+</style>
+
+<div class="cvx">
+  <header class="cvx-head">
+    {% if cv.headline %}
+      <p class="cvx-headline">{{ cv.headline }}</p>
+    {% endif %}
+    <ul class="cvx-contact">
+      {% if cv.location %}
+        <li><i class="fa-solid fa-location-dot"></i>{{ cv.location }}</li>
+      {% endif %}
+      {% if cv.email %}
+        <li>
+          <i class="fa-solid fa-envelope"></i><a href="mailto:{{ cv.email }}">{{ cv.email }}</a>
+        </li>
+      {% endif %}
+      {% for link in cv.links %}
+        <li>
+          <i class="{{ link.icon }}"></i><a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+    {% if cv.summary %}
+      <p class="cvx-summary">{{ cv.summary }}</p>
+    {% endif %}
+  </header>
+
+  {% assign timeline_sections = 'education,experience' | split: ',' %}
+  {% for key in timeline_sections %}
+    {% assign items = cv[key] %}
+    {% if items %}
+      <section class="cvx-section" id="{{ key }}">
+        <h2>{{ key | capitalize }}</h2>
+        <div>
+          {% for e in items %}
+            <div class="cvx-entry">
+              <div class="cvx-row">
+                <h3 class="cvx-title">{{ e.title }}</h3>
+                <span class="cvx-date">{{ e.date }}</span>
+              </div>
+              <div class="cvx-row">
+                <span class="cvx-org">
+                  {%- if e.url -%}
+                    <a href="{{ e.url }}" target="_blank" rel="noopener noreferrer">{{ e.org }}</a>
+                  {%- else -%}
+                    {{ e.org }}
+                  {%- endif -%}
+                </span>
+                <span class="cvx-loc">{{ e.location }}</span>
+              </div>
+              {% if e.highlights %}
+                <ul class="cvx-list">
+                  {% for h in e.highlights %}
+                    <li>{{ h | markdownify | remove: '<p>' | remove: '</p>' | strip }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+  {% endfor %}
+
+  <section class="cvx-section cvx-pubs" id="publications">
+    <h2>Publications</h2>
+    <div class="publications">
+      {% bibliography --group_by none %}
+    </div>
+  </section>
+
+  {% if cv.projects %}
+    <section class="cvx-section" id="research">
+      <h2>Research Projects</h2>
+      <div>
+        {% for p in cv.projects %}
+          <div class="cvx-entry">
+            <h3 class="cvx-title">{{ p.title }}</h3>
+            <p class="cvx-meta">
+              {{ p.org -}}
+              {%- if p.advisors %} · Advisors: {{ p.advisors }}{% endif %}
+            </p>
+            {% if p.summary %}
+              <p class="cvx-text">{{ p.summary }}</p>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+
+  {% if cv.awards %}
+    <section class="cvx-section" id="awards">
+      <h2>Honors &amp; Awards</h2>
+      <div>
+        {% for a in cv.awards %}
+          <div class="cvx-entry">
+            <div class="cvx-row">
+              <h3 class="cvx-title">{{ a.title }}</h3>
+              {% if a.date -%}
+                <span class="cvx-date">{{ a.date }}</span>
+              {%- endif %}
+            </div>
+            <p class="cvx-meta cvx-org">{{ a.org }}</p>
+            {% if a.summary %}
+              <p class="cvx-text">{{ a.summary }}</p>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+
+  {% if cv.skills %}
+    <section class="cvx-section" id="skills">
+      <h2>Skills</h2>
+      <dl class="cvx-kv">
+        {% for s in cv.skills %}
+          <dt>{{ s.name }}</dt>
+          <dd>
+            <ul class="cvx-chips">
+              {% for item in s.items %}
+                <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+          </dd>
+        {% endfor %}
+      </dl>
+    </section>
+  {% endif %}
+
+  {% if cv.additional %}
+    <section class="cvx-section" id="additional">
+      <h2>Additional</h2>
+      <dl class="cvx-kv">
+        {% for x in cv.additional %}
+          <dt>{{ x.name }}</dt>
+          <dd>{{ x.value }}</dd>
+        {% endfor %}
+      </dl>
+    </section>
+  {% endif %}
+</div>
